@@ -18,6 +18,9 @@ def visualize(iteration, error, X, Y, ax):
 
 def main():
     X = np.loadtxt('data/fish_target.txt')
+
+    X= (np.array([[2,0],[0,1]])@X.T).T
+
     Y = np.loadtxt('data/fish_source.txt')
 
     fig = plt.figure()

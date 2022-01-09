@@ -1,5 +1,6 @@
 *.pyc
 /dist/
+.idea
 /build/
 /*.egg-info
 temp*

@@ -3,6 +3,8 @@ import numpy as np
 import numbers
 from .emregistration import EMRegistration
 
+import matplotlib.pyplot as plt
+from scipy import misc
 
 def gaussian_kernel(X, beta, Y=None):
     if Y is None:
@@ -10,6 +12,17 @@ def gaussian_kernel(X, beta, Y=None):
     diff = X[:, None, :] - Y[None, :,  :]
     diff = np.square(diff)
     diff = np.sum(diff, 2)
+
+    # vis = np.exp(-diff / (2 * beta**2))*255
+    # vis = vis.astype(np.uint8)
+    # plt.imshow( vis ,cmap='viridis', aspect='auto')
+    # plt.colorbar()
+    # plt.show()
+    # # misc.imshow(vis)
+
+
+
+
     return np.exp(-diff / (2 * beta**2))
 
 def low_rank_eigen(G, num_eig):
